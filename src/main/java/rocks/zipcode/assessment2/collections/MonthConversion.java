@@ -25,7 +25,7 @@ public class MonthConversion {
      * @return the name of the respective month
      */
     public String getName(Integer monthNumber) {
-        return String.valueOf(month.get(monthNumber));
+        return null;
     }
 
     /**
@@ -33,12 +33,8 @@ public class MonthConversion {
      * @return - the ordinal of the month in the year
      */
     public int getNumber(String monthName) {
-        for(Map.Entry<String,Integer> entry : month.entrySet()) {
-            String key = entry.getKey();
-            Integer value = entry.getValue();
-            if (Objects.equals(monthName, entry.getValue())) {
-                return Integer.parseInt(entry.getKey());
-            }
+        if (month.values().contains(monthName)) {
+            return month.get(monthName);
         } return -1;
     }
 

@@ -43,17 +43,17 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-//        string.replaceAll(" ", "");
-////        return string.matches("[a-zA-Z]+");
         string.replaceAll(" ", "");
-        char[] chars = string.toCharArray();
-
-        for (char c : chars) {
-            if(!Character.isLetter(c)) {
-                return false;
-            }
-        } return true;
-    }
+        return string.matches("[a-zA-Z]+"); }
+//        string.replaceAll(" ", "");
+//        char[] chars = string.toCharArray();
+//
+//        for (char c : chars) {
+//            if(!Character.isLetter(c)) {
+//                return false;
+//            }
+//        } return true;
+//    }
 
     /**
      * @param string - string to be evaluated
@@ -69,15 +69,15 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        char[] chars = string.toCharArray();
-        char[] specialchars = {'[','$','&','+',',',':',';','=','?','@','#','|','<','>','.','-','^','*','(',')','%','!',']'};
-        for (char c : chars) {
-            for (char spec : specialchars) {
-                if ((c == spec) && (!(Character.isAlphabetic(c)))){
-                    return true;
-                }
-            }
-        } return false;
-//        return string.matches("[$&+,:;=?@#|'<>.-^*()%!]");
+//        char[] chars = string.toCharArray();
+//        char[] specialchars = {'[','$','&','+',',',':',';','=','?','@','#','|','<','>','.','-','^','*','(',')','%','!',']'};
+//        for (char c : chars) {
+//            for (char spec : specialchars) {
+//                if ((c == spec) && (!(Character.isAlphabetic(c)))){
+//                    return true;
+//                }
+//            }
+//        } return false;
+        return string.matches("[$&+,:;=?@#|'<>.-^*()%!]");
     }
 }
