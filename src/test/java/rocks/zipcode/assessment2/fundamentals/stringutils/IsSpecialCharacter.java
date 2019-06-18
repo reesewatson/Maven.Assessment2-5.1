@@ -68,7 +68,7 @@ public class IsSpecialCharacter {
         boolean outcome = StringUtils.isSpecialCharacterString(alphaString);
 
         // Then
-        Assert.assertTrue(outcome);
+        Assert.assertFalse(outcome);
     }
 
 

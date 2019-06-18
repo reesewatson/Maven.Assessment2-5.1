@@ -12,10 +12,11 @@ public class Animal {
     private Person owner;
     private Address address;
 
+
     public Animal() {
-        this.id = Long.MIN_VALUE;;
+        this.id = null;
         this.owner = new Person();
-        this.address = address;
+        this.address = getAddress();
     }
 
     /**
@@ -25,7 +26,6 @@ public class Animal {
     public Animal(Long id, Person owner) {
         this.id = id;
         this.owner = owner;
-
     }
 
     public Long getId() {
@@ -34,6 +34,7 @@ public class Animal {
     }
 
     public void setId(Long id) {
+
         this.id = id;
     }
 
@@ -49,6 +50,6 @@ public class Animal {
 
     public Address getAddress() {
 
-        return address;
+        return owner.getAddress();
     }
 }

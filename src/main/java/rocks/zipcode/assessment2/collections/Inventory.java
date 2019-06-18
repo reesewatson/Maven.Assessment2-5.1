@@ -1,5 +1,6 @@
 package rocks.zipcode.assessment2.collections;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -16,11 +17,10 @@ public class Inventory {
      * @param strings list of strings to add / remove / fetch from
      */
     public Inventory(List<String> strings) {
-        Map<String, Integer> inventory = new TreeMap<>();
+        this.strings = strings;
+        inventory = new TreeMap<>();
         for (String string : strings) {
-            if (!inventory.containsKey(string)) {
-                inventory.put(string, 1);
-            }
+            inventory.put(string, 1);
         }
     }
 
@@ -28,23 +28,26 @@ public class Inventory {
      * nullary constructor initializes a new list
      */
     public Inventory() {
-
+        this.inventory = new TreeMap<>();
+        this.strings = new ArrayList<>();
     }
 
     /**
      * @param item - increment the number of this item in stock by 1
      */
     public void addItemToInventory(String item) {
-
-        strings.add(item);
+        if(inventory.containsKey(item)) {
+            inventory.put(item, 2);
+        } else {
+            inventory.put(item, 1);
+        }
     }
 
     /**
      * @param item - decrement the number of this item in stock by 1
      */
     public void removeItemFromInventory(String item) {
-
-        strings.remove(item);
+        inventory.put(item, inventory.get(item) - 1);
     }
 
     /**
@@ -52,7 +55,8 @@ public class Inventory {
      * @return - return the number of items
      */
     public Integer getItemQuantity(String item) {
-
-        return strings.size();
+        if (inventory.containsKey(item)) {
+            inventory.get(item);
+        } return 0;
     }
 }

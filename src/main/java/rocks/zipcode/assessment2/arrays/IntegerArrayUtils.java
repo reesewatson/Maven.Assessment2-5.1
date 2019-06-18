@@ -2,6 +2,9 @@ package rocks.zipcode.assessment2.arrays;
 
 import java.util.Arrays;
 
+import static rocks.zipcode.assessment2.fundamentals.PredicateUtilities.isEven;
+import static rocks.zipcode.assessment2.fundamentals.PredicateUtilities.isOdd;
+
 /**
  * @author leon on 28/11/2018.
  */
@@ -42,10 +45,13 @@ public class IntegerArrayUtils {
      * @return identical array with even-values incremented by 1 and odd-values decremented by 1
      */
     public static Integer[] incrementEvenDecrementOdd(Integer[] integerArray) {
-        incrementEven(integerArray);
-        decrementOdd(integerArray);
-        return integerArray;
-
+        for (int i = 0; i < integerArray.length; i++) {
+            if (integerArray[i] % 2 == 0) {
+                integerArray[i] = integerArray[i] + 1;
+            } else if (integerArray[i] % 2 != 0) {
+                integerArray[i] = integerArray[i] - 1;
+            }
+        } return integerArray;
     }
         /**
          * @param integerArray - array to be evaluated

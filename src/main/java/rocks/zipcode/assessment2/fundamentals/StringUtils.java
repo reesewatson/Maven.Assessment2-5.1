@@ -43,17 +43,10 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        string.replaceAll(" ", "");
-        return string.matches("[a-zA-Z]+"); }
-//        string.replaceAll(" ", "");
-//        char[] chars = string.toCharArray();
-//
-//        for (char c : chars) {
-//            if(!Character.isLetter(c)) {
-//                return false;
-//            }
-//        } return true;
-//    }
+
+        return Pattern.matches("[a-zA-Z]+", string.replace(" ", ""));
+    }
+
 
     /**
      * @param string - string to be evaluated
@@ -78,6 +71,6 @@ public class StringUtils {
 //                }
 //            }
 //        } return false;
-        return string.matches("[$&+,:;=?@#|'<>.-^*()%!]");
+        return string.matches("$&[+/,:;=?{@#|'<>.}^*()%]!-");
     }
 }

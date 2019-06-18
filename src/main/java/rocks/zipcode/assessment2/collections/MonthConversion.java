@@ -1,15 +1,13 @@
 package rocks.zipcode.assessment2.collections;
 
-import java.util.Map;
-import java.util.Objects;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Use a map to solve
  */
 public class MonthConversion {
 
-    private Map<String, Integer> month = new TreeMap<>();
+    private Map<String, Integer> month = new HashMap<>();
 
     /**
      * @param monthNumber - ordinal of month in the year; i.e. January = 1, February = 2
@@ -25,7 +23,9 @@ public class MonthConversion {
      * @return the name of the respective month
      */
     public String getName(Integer monthNumber) {
-        return null;
+        if (isValidNumber(monthNumber)) {
+            return String.valueOf(month.get(monthNumber));
+        } return null;
     }
 
     /**
@@ -33,9 +33,7 @@ public class MonthConversion {
      * @return - the ordinal of the month in the year
      */
     public int getNumber(String monthName) {
-        if (month.values().contains(monthName)) {
-            return month.get(monthName);
-        } return -1;
+        return month.get(monthName);
     }
 
     /**
